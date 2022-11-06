@@ -1,0 +1,5 @@
+User: dude1
+Pass: dude1
+IP: 159.89.86.132
+PORT: 999
+Download Putty and put on Port and IP using SHH, then enter the account details.

